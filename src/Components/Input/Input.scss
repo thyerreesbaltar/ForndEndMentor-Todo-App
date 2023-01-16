@@ -1,0 +1,94 @@
+@import "../../Variables.scss";
+
+.newTodo {
+    width: $defaultWidthDesktop;
+    margin-bottom: 1.5rem;
+    height: 6vh;
+
+    border-radius: .2rem;
+    border: none;
+
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    align-items: center;
+    justify-content: center;
+
+    input {
+        width: calc($defaultWidthDesktop - 7vw);
+        height: 6vh;
+
+        background: transparent;
+
+        border: none;
+
+        font-size: $fontSize;
+        font-family: $font-family;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    div {
+        margin: auto;
+
+        background: transparent;
+
+        height: 1.3rem;
+        width: 1.3rem;
+
+        border: .15rem;
+        border-radius: 50%;
+        border-style: solid;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .newTodo {
+        width: $defaultWidthMobile;
+        grid-template-columns: 3fr 6fr;
+
+        input {
+            width: calc($defaultWidthMobile - 15vw);
+            font-size: calc($fontSize - 5px);
+
+            &::placeholder {
+                font-size: calc($fontSize - 5px);
+            }
+        }
+
+        div {
+            height: .9rem;
+            width: .9rem;
+        }
+    }
+}
+
+.theme-dark {
+    .newTodo {
+
+        background-color: $veryDarkDesaturatedBlue;
+
+        input {
+            color: $veryLightGrayishBlue;
+        }
+
+        div {
+            border-color: $veryDarkGrayishBlueDarkTheme2;
+        }
+    }
+}
+
+.theme-light {
+    .newTodo {
+        background-color: $veryLightGray;
+
+        input {
+            color: $veryDarkGrayishBlueLightTheme;
+        }
+
+        div {
+            border-color: $veryLightGrayishBlue;
+        }
+    }
+}

@@ -1,0 +1,346 @@
+@import "../../Variables.scss";
+
+
+.list {
+    width: $defaultWidthDesktop;
+    border-radius: .5rem;
+
+    .content-list {
+        li {
+
+            min-height: 8vh;
+            padding: .5rem 0;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 6fr 1fr;
+            cursor: pointer;
+
+            list-style: none;
+
+            div {
+                margin: auto;
+
+                background: transparent;
+
+                height: 1.3rem;
+                width: 1.3rem;
+
+                border: .15rem;
+                border-radius: 50%;
+                border-style: solid;
+            }
+
+            span {
+                max-width: 26em;
+                font-size: $fontSize;
+                font-family: $font-family;
+                font-weight: 400;
+                word-break: break-all;
+            }
+
+            button {
+                background: transparent;
+                border: none;
+                display: none;
+                cursor: pointer;
+            }
+
+            &:hover {
+
+                grid-template-columns: 1fr 6fr 1fr;
+
+                button {
+                    display: block;
+                }
+            }
+        }
+
+        .todo-in-progress {
+            &:hover {
+                div {
+                    border-radius: 50em;
+                }
+            }
+        }
+
+        .todo-completed {
+            div {
+                border-radius: 50em;
+            }
+
+            span {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+
+    .footer-list {
+        padding: 0 2rem;
+        height: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: calc($fontSize - 4px);
+        font-family: $font-family;
+        font-weight: 700;
+
+        .footer-option-filter-todo {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            width: 12rem;
+
+            li {
+                height: 3rem;
+                padding: 0 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .filter-active {
+                color: $brightBlue;
+
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+
+        button {
+            height: 3rem;
+            background: transparent;
+            border: none;
+            font-family: $font-family;
+            font-size: calc($fontSize - 4px);
+            font-weight: 700;
+
+            &:hover {
+                cursor: pointer;
+
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .list {
+
+        width: $defaultWidthMobile;
+
+        .content-list {
+            li {
+                div {
+                    height: .9rem;
+                    width: .9rem;
+                }
+
+                span {
+                    font-size: calc($fontSize - 4px);
+                }
+
+                button {
+                    img {
+                        height: .9rem;
+                        width: .9rem;
+                    }
+                }
+            }
+        }
+
+        .footer-list {
+
+            padding: 0;
+            display: grid;
+            grid-template-areas: "total  clear"
+                "filter filter";
+
+            span {
+                text-align: center;
+                grid-area: total;
+                font-size: calc($fontSize - 6px);
+            }
+
+            ul {
+                padding: 0 4rem;
+                margin: 1rem auto;
+
+                grid-area: filter;
+
+                border-radius: .5rem;
+
+                font-size: calc($fontSize - 2px);
+
+            }
+
+            button {
+                font-size: calc($fontSize - 6px);
+
+                grid-area: clear;
+            }
+        }
+    }
+
+    .theme-dark {
+        .list {
+            .footer-list {
+
+                ul {
+                    background: $veryDarkDesaturatedBlue;
+                }
+            }
+        }
+    }
+
+    .theme-light {
+        .list {
+            .footer-list {
+
+                ul {
+
+                    background: $veryLightGray;
+                    box-shadow: 0 .3rem 4rem .002rem $lightGrayishBlueLightTheme;
+                }
+            }
+        }
+    }
+}
+
+.theme-dark {
+    .list {
+        background-color: $veryDarkDesaturatedBlue;
+
+        .content-list {
+            li {
+                border-bottom: .1rem solid $veryDarkGrayishBlueDarkTheme2;
+
+
+                div {
+                    border-color: $veryDarkGrayishBlueDarkTheme2;
+                }
+
+                span {
+                    color: $veryLightGrayishBlue;
+                }
+            }
+
+            .todo-in-progress {
+                &:hover {
+                    div {
+                        background: linear-gradient($veryDarkDesaturatedBlue, $veryDarkDesaturatedBlue) padding-box,
+                            $checkBackground border-box;
+                        border: .15rem solid transparent;
+                    }
+                }
+            }
+
+            .todo-completed {
+                div {
+                    background: url("../../Assets/icon-check.svg") no-repeat center, linear-gradient(transparent, transparent) padding-box, $checkBackground border-box;
+                    border: .15rem solid transparent;
+                }
+
+                span {
+                    color: $veryDarkGrayishBlueDarkTheme1;
+                }
+            }
+        }
+
+
+        .footer-list {
+            color: $darkGrayishBlueDarkTheme;
+
+            .footer-option-filter-todo {
+                li {
+                    &:hover {
+                        color: $veryLightGray;
+                    }
+                }
+
+                .filter-active {
+                    &:hover {
+                        color: $brightBlue;
+                    }
+                }
+            }
+
+            button {
+                color: $darkGrayishBlueDarkTheme;
+
+                &:hover {
+                    color: $veryLightGray;
+                }
+            }
+        }
+    }
+}
+
+.theme-light {
+    .list {
+        background-color: $veryLightGray;
+        box-shadow: 0 .3rem 4rem .002rem $lightGrayishBlueLightTheme;
+
+        .content-list {
+            li {
+                border-bottom: .1rem solid $veryLightGrayishBlue;
+
+                div {
+                    border-color: $veryLightGrayishBlue;
+                }
+
+                span {
+                    color: $veryDarkGrayishBlueLightTheme;
+                }
+            }
+
+            .todo-in-progress {
+                &:hover {
+                    div {
+                        background: linear-gradient($veryLightGray, $veryLightGray) padding-box,
+                            $checkBackground border-box;
+                        border: .15rem solid transparent;
+                    }
+                }
+            }
+
+            .todo-completed {
+                div {
+                    background: url("../../Assets/icon-check.svg") no-repeat center, linear-gradient(transparent, transparent) padding-box, $checkBackground border-box;
+                    border: .15rem solid transparent;
+                }
+
+                span {
+                    color: $lightGrayishBlueLightTheme;
+                }
+            }
+        }
+
+
+        .footer-list {
+            color: $darkGrayishBlueLightTheme;
+
+            .footer-option-filter-todo {
+
+                li {
+                    &:hover {
+                        color: $veryDarkGrayishBlueDarkTheme2;
+                    }
+                }
+            }
+
+            button {
+                color: $darkGrayishBlueLightTheme;
+
+                &:hover {
+                    color: $veryDarkGrayishBlueDarkTheme2;
+                }
+            }
+        }
+    }
+}

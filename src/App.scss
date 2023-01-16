@@ -1,0 +1,43 @@
+@import "./Variables.scss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: 100vw 20rem;
+    overflow-x: hidden;
+
+}
+@media screen and (max-width: $mobile) {
+    .App {
+        background-size: 100vw 10rem;
+
+    }
+
+    .theme-dark {
+        background-image: url("./Assets/bg-mobile-dark.jpg");
+    }
+
+    .theme-light {
+        background-image: url("./Assets/bg-mobile-light.jpg");
+    }
+}
+.theme-dark {
+    background-color: $veryDarkBlue;
+    background-image: url("./Assets/bg-desktop-dark.jpg");
+    background-repeat: no-repeat;
+}
+
+.theme-light {
+    background-color: $veryLightGray;
+    background-image: url("./Assets/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
+}

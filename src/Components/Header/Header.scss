@@ -1,0 +1,47 @@
+@import "../../Variables.scss";
+
+.header {
+    padding: 6rem 0 3rem 0;
+
+    max-width: $desktop;
+    width: $defaultWidthDesktop;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        color: $veryLightGray;
+        font-size: 3em;
+        letter-spacing: .7rem;
+        font-weight: 700;
+        font-family: $font-family;
+    }
+
+    button {
+        height: 3vh;
+        width: 2vw;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .header {
+        max-width: $mobile;
+
+        width: $defaultWidthMobile;
+        padding: 3rem 0 1rem 0;
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        button {
+            height: 4vh;
+            width: 7vw;
+        }
+    }
+}
